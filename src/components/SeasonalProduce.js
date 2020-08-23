@@ -1,8 +1,9 @@
-import react from 'react';
+import React from 'react';
 import Location from './Location';
+import Produce from './Produce';
 import PropTypes from 'prop-types';
 
-const availableProduce = [  
+export const seasonalProduceList = [  
    {  
       month: "January",
       selection: [  
@@ -271,20 +272,22 @@ const availableProduce = [
    }
 ];
 
-function AvailableProduce(props) {
+export function SeasonalProduce() {
   return (
     <React.Fragment>
-      <SeasonalProduce month={props.day}
-        selection={props.selection}
-      />
+       {seasonalProduceList.map((produce, index) => (
+         <Produce month={produce.month}
+         selection={produce.selection}
+         key={index} />
+      ))}
     </React.Fragment>
   );
 }
 
 
-AvailableProduce.propTypes = {
+SeasonalProduce.propTypes = {
   month: PropTypes.string,
   selection: PropTypes.string
 }
 
-export default AvailableProduce;
+// export default {SeasonalProduce, seasonalProduceList};
