@@ -3,7 +3,7 @@ import react from "react";
 
 export function seasonalProduceList(month) {
   let produce = [];  
-    switch(month) {  
+  switch(month) {  
       
        case "January":
        produce.push( 

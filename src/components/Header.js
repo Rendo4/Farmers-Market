@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header() {
+function Header(props) {
   return (
     <h1>Farmer's Market</h1>
   );

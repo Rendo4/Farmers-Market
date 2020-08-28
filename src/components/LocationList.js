@@ -41,7 +41,7 @@ const marketSchedule = [
   },
 ];
 
-function LocationList() {
+function LocationList(props) {
   return (
     <React.Fragment>
       <hr />
@@ -53,6 +53,7 @@ function LocationList() {
           booth={location.booth}
         />
       ))}
+      <button onClick={props.whenHomeClicked}>Return to homepage</button>
     </React.Fragment>
   );
 }

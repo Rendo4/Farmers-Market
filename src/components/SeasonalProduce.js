@@ -289,5 +289,3 @@ SeasonalProduce.propTypes = {
   month: PropTypes.string,
   selection: PropTypes.string
 }
-
-// export default {SeasonalProduce, seasonalProduceList};
