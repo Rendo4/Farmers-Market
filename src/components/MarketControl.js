@@ -2,7 +2,6 @@ import React from 'react';
 import LocationList from './LocationList';
 import Homepage from "./Homepage";
 import MonthlyProduce from './MonthlyProduce'
-import { getProduce }  from "./fakeseasonalProduceService";
 import { seasonalProduceList } from "./trialSwitchCase";
 import Month from "./Month";
 import Header from "./Header";
@@ -11,12 +10,17 @@ class MarketControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      seasonalProduce: getProduce(),
+      seasonalProduceList: [],
       produceVisibleOnPage: false,
       locationsVisibleOnPage: false,
       selectedMonth: null
     }
   }
+  //write another function that takes seasonal produce list from trialswitchcase and write a function that sets state of seasonalproducelist to the result of that
+  handleProduceList = () => {
+  let list = seasonalProduceList(this.state.selectedMonth)
+}
+
   handleClick = () => {
     if (this.state.selectedMonth != null) {
       this.setState({
@@ -65,7 +69,7 @@ class MarketControl extends React.Component {
     let currentlyVisibleState = null;
     //User has selected a month
     if (this.state.selectedMonth != null) {
-      currentlyVisibleState = < Month produceList={seasonalProduceList(this.state.selectedMonth)} whenMonthClicked={this.getMonth} whenHomeClicked={this.handleHomeClick} monthsClick={this.handleMonthsClick} />
+      currentlyVisibleState = < Month handleProduceList={this.state.seasonalProduceList} whenMonthClicked={this.getMonth} whenHomeClicked={this.handleHomeClick} monthsClick={this.handleMonthsClick} />
     }else if(this.state.produceVisibleOnPage) {
       currentlyVisibleState = <MonthlyProduce whenMonthClicked={this.getMonth} whenHomeClicked={this.handleHomeClick}/>
     } else if(this.state.locationsVisibleOnPage) {
